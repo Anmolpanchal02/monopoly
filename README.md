@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Monopoly Royale
 
-## Getting Started
+Modern multiplayer Monopoly-inspired web game built with **Next.js 15**, **React 19**, **TypeScript**, **TailwindCSS**, **Socket.io**, **Zustand**, **Prisma**, and **NextAuth**.
 
-First, run the development server:
+## Features
+
+- Private rooms (2–8 players) with optional password, ready checks, kick, host transfer
+- JSON-driven 40-space board (`data/board.json`) — edit freely for custom themes
+- Chance & Community Chest decks from `data/cards.json`
+- Full turn system: dice, doubles → jail, buy/auction, rent, houses/hotels, mortgage, trading, bankruptcy
+- Animated board, 3D-style dice, emotes, room chat with typing indicators
+- Themes: Classic, Winter, Cyberpunk, Custom
+- Spectator mode, replay API, profiles, achievements, leaderboards, daily challenges
+- Host admin: pause / resume / restart / kick / transfer host
+- Server-authoritative game engine (anti-cheat)
+- Auto-reconnect via room code; optional DB game save
+
+## Quick Start
+
+### Prerequisites
+
+- Node.js 20+
+- PostgreSQL 16+ (optional for local demo — game works in-memory without DB)
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.example .env
+npm install
+npm run db:push      # requires DATABASE_URL
+npm run db:seed
+npm run dev          # http://localhost:3000 (Next + Socket.io)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Docker
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+docker compose up --build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+App: http://localhost:3000 · Postgres: localhost:5432
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Custom server with Socket.io |
+| `npm run build` | Production Next.js build |
+| `npm start` | Run production server |
+| `npm test` | Vitest unit tests |
+| `npm run test:e2e` | Playwright e2e tests |
+| `npm run db:push` | Sync Prisma schema |
+| `npm run db:studio` | Prisma Studio |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+app/            Next.js App Router pages & API routes
+components/     UI — board, lobby, chat, panels
+context/        React GameContext
+data/           board.json, cards.json, themes.json, meta.json
+game/           Server game engine
+hooks/          useSocket and helpers
+lib/            auth, prisma, utils, sounds, board loader
+prisma/         Schema & seed
+server/         Room manager + Socket.io handlers
+store/          Zustand client store
+types/          Shared TypeScript types
+e2e/            Playwright tests
+server.ts       Custom HTTP + Socket.io entry
+```
 
-## Deploy on Vercel
+## Custom Boards
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Edit `data/board.json` — each tile supports `name`, `price`, `rent`, `colorGroup`, etc. Restart the server after changes. Upload community boards via `POST /api/boards/custom` (authenticated).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Environment
+
+See `.env.example`:
+
+- `DATABASE_URL` — PostgreSQL
+- `AUTH_SECRET` / `NEXTAUTH_SECRET`
+- `NEXT_PUBLIC_APP_URL`
+
+Auth is guest-only — enter a display name to play.
+
+## Deployment
+
+### Recommended (Socket.io)
+
+Socket.io needs a long-lived Node process. Deploy the custom server to:
+
+- **Railway / Render / Fly.io / Docker VPS**
+
+```bash
+npm run build
+npm start
+```
+
+Point `DATABASE_URL` at managed Postgres and set auth secrets.
+
+### Vercel (frontend-only note)
+
+Vercel serverless does **not** support persistent Socket.io. Options:
+
+1. Host the Socket.io server separately and set the client URL
+2. Or deploy the full Docker image to a Node host
+
+Frontend pages and API routes (auth, leaderboard, profile) can still run on Vercel if the realtime layer is external.
+
+## Testing
+
+```bash
+npm test                 # engine + utils
+npx playwright install   # once
+npm run test:e2e
+```
+
+## License
+
+MIT — inspired by classic property-trading board games. Not affiliated with Hasbro.

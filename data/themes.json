@@ -1,0 +1,42 @@
+{
+  "classic": {
+    "id": "classic",
+    "name": "Classic",
+    "description": "Timeless Monopoly board vibes",
+    "boardBg": "from-emerald-900 via-green-800 to-emerald-950",
+    "accent": "#c41e3a",
+    "surface": "rgba(15, 40, 25, 0.75)",
+    "tileBg": "#f5f0e6",
+    "text": "#f8fafc"
+  },
+  "winter": {
+    "id": "winter",
+    "name": "Winter",
+    "description": "Frosty blues and soft snow glow",
+    "boardBg": "from-slate-800 via-cyan-900 to-blue-950",
+    "accent": "#38bdf8",
+    "surface": "rgba(15, 23, 42, 0.8)",
+    "tileBg": "#e2e8f0",
+    "text": "#f1f5f9"
+  },
+  "cyberpunk": {
+    "id": "cyberpunk",
+    "name": "Cyberpunk",
+    "description": "Neon nights and electric streets",
+    "boardBg": "from-fuchsia-950 via-violet-950 to-cyan-950",
+    "accent": "#f0abfc",
+    "surface": "rgba(24, 10, 40, 0.85)",
+    "tileBg": "#1e1030",
+    "text": "#fdf4ff"
+  },
+  "custom": {
+    "id": "custom",
+    "name": "Custom",
+    "description": "Upload your own board theme JSON",
+    "boardBg": "from-zinc-900 via-neutral-800 to-stone-900",
+    "accent": "#f59e0b",
+    "surface": "rgba(24, 24, 27, 0.85)",
+    "tileBg": "#fafaf9",
+    "text": "#fafaf9"
+  }
+}

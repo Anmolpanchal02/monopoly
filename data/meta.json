@@ -1,0 +1,94 @@
+{
+  "achievements": [
+    {
+      "id": "first_win",
+      "name": "Tycoon",
+      "description": "Win your first game",
+      "icon": "🏆",
+      "condition": "gamesWon >= 1"
+    },
+    {
+      "id": "monopoly_maker",
+      "name": "Monopoly Maker",
+      "description": "Own a complete color group",
+      "icon": "🏠",
+      "condition": "ownMonopoly"
+    },
+    {
+      "id": "hotel_mogul",
+      "name": "Hotel Mogul",
+      "description": "Build 5 hotels in a single game",
+      "icon": "🏨",
+      "condition": "hotelsBuilt >= 5"
+    },
+    {
+      "id": "jailbird",
+      "name": "Jailbird",
+      "description": "Go to jail 10 times across all games",
+      "icon": "🔒",
+      "condition": "timesJailed >= 10"
+    },
+    {
+      "id": "deal_maker",
+      "name": "Deal Maker",
+      "description": "Complete 25 trades",
+      "icon": "🤝",
+      "condition": "tradesCompleted >= 25"
+    },
+    {
+      "id": "railroad_baron",
+      "name": "Railroad Baron",
+      "description": "Own all four railroads",
+      "icon": "🚂",
+      "condition": "ownAllRailroads"
+    },
+    {
+      "id": "boardwalk_king",
+      "name": "Boardwalk King",
+      "description": "Own Boardwalk with a hotel",
+      "icon": "👑",
+      "condition": "boardwalkHotel"
+    },
+    {
+      "id": "survivor",
+      "name": "Survivor",
+      "description": "Win a game with 6+ players",
+      "icon": "💪",
+      "condition": "winLargeGame"
+    }
+  ],
+  "dailyChallenges": [
+    {
+      "id": "dc_buy_3",
+      "title": "Property Hunter",
+      "description": "Buy 3 properties in a single game",
+      "reward": 100,
+      "target": 3,
+      "metric": "propertiesBought"
+    },
+    {
+      "id": "dc_build_hotel",
+      "title": "Hospitality",
+      "description": "Build a hotel",
+      "reward": 150,
+      "target": 1,
+      "metric": "hotelsBuilt"
+    },
+    {
+      "id": "dc_collect_rent",
+      "title": "Landlord",
+      "description": "Collect $500 in rent",
+      "reward": 120,
+      "target": 500,
+      "metric": "rentCollected"
+    },
+    {
+      "id": "dc_win_game",
+      "title": "Champion of the Day",
+      "description": "Win a multiplayer game",
+      "reward": 250,
+      "target": 1,
+      "metric": "gamesWon"
+    }
+  ]
+}

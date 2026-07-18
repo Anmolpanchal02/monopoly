@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: monopoly
+      POSTGRES_PASSWORD: monopoly
+      POSTGRES_DB: monopoly
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U monopoly -d monopoly"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://monopoly:monopoly@db:5432/monopoly
+      AUTH_SECRET: docker-dev-secret-change-me
+      NEXTAUTH_SECRET: docker-dev-secret-change-me
+      NEXT_PUBLIC_APP_URL: http://localhost:3000
+      AUTH_URL: http://localhost:3000
+      NEXTAUTH_URL: http://localhost:3000
+      NODE_ENV: production
+      PORT: "3000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:

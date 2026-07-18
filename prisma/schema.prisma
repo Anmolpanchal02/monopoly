@@ -1,0 +1,191 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  username      String?   @unique
+  isGuest       Boolean   @default(false)
+  avatar        String    @default("🎩")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts      Account[]
+  sessions      Session[]
+  stats         PlayerStats?
+  gamePlayers   GamePlayer[]
+  roomsHosted   Room[]       @relation("RoomHost")
+  achievements  UserAchievement[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Room {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  password  String?
+  hostId    String
+  status    String   @default("waiting")
+  theme     String   @default("classic")
+  boardId   String   @default("classic-us")
+  settings  Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  host  User   @relation("RoomHost", fields: [hostId], references: [id])
+  games Game[]
+}
+
+model Game {
+  id           String    @id @default(cuid())
+  roomId       String
+  roomCode     String
+  status       String    @default("playing")
+  state        Json
+  boardId      String    @default("classic-us")
+  winnerId     String?
+  startedAt    DateTime  @default(now())
+  endedAt      DateTime?
+  updatedAt    DateTime  @updatedAt
+
+  room    Room         @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  players GamePlayer[]
+  replay  ReplayEvent[]
+
+  @@index([roomCode])
+}
+
+model GamePlayer {
+  id        String  @id @default(cuid())
+  gameId    String
+  userId    String
+  username  String
+  token     String
+  color     String
+  placement Int?
+  finalCash Int?
+  isWinner  Boolean @default(false)
+
+  game Game @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([gameId, userId])
+}
+
+model ReplayEvent {
+  id        String   @id @default(cuid())
+  gameId    String
+  type      String
+  payload   Json
+  timestamp DateTime @default(now())
+  sequence  Int
+
+  game Game @relation(fields: [gameId], references: [id], onDelete: Cascade)
+
+  @@index([gameId, sequence])
+}
+
+model PlayerStats {
+  id                String @id @default(cuid())
+  userId            String @unique
+  gamesPlayed       Int    @default(0)
+  gamesWon          Int    @default(0)
+  totalMoneyEarned  Int    @default(0)
+  propertiesBought  Int    @default(0)
+  hotelsBuilt       Int    @default(0)
+  timesJailed       Int    @default(0)
+  tradesCompleted   Int    @default(0)
+  rentCollected     Int    @default(0)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Achievement {
+  id          String @id @default(cuid())
+  key         String @unique
+  name        String
+  description String
+  icon        String
+
+  users UserAchievement[]
+}
+
+model UserAchievement {
+  id            String   @id @default(cuid())
+  userId        String
+  achievementId String
+  unlockedAt    DateTime @default(now())
+
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  achievement Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, achievementId])
+}
+
+model LeaderboardEntry {
+  id        String   @id @default(cuid())
+  userId    String
+  username  String
+  avatar    String
+  score     Int
+  wins      Int
+  period    String
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, period])
+  @@index([period, score])
+}
+
+model CustomBoard {
+  id        String   @id @default(cuid())
+  userId    String
+  name      String
+  data      Json
+  isPublic  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+}

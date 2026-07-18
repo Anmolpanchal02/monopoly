@@ -1,0 +1,768 @@
+{
+  "id": "india-cities",
+  "name": "India City Edition",
+  "version": "1.0.0",
+  "currency": "₹",
+  "theme": "classic",
+  "colorGroupSizes": {
+    "brown": 2,
+    "lightblue": 3,
+    "pink": 3,
+    "orange": 3,
+    "red": 3,
+    "yellow": 3,
+    "green": 3,
+    "darkblue": 2,
+    "railroad": 4,
+    "utility": 2
+  },
+  "tiles": [
+    {
+      "id": 0,
+      "name": "GO",
+      "type": "go",
+      "colorGroup": "none",
+      "price": 0,
+      "houseCost": 0,
+      "mortgageValue": 0,
+      "rent": null,
+      "taxAmount": 0,
+      "description": "Collect ₹2000 as you pass"
+    },
+    {
+      "id": 1,
+      "name": "Indore",
+      "type": "property",
+      "colorGroup": "brown",
+      "price": 600,
+      "houseCost": 500,
+      "mortgageValue": 300,
+      "rent": {
+        "base": 20,
+        "monopoly": 40,
+        "houses": [
+          100,
+          300,
+          900,
+          1600
+        ],
+        "hotel": 2500
+      },
+      "taxAmount": 0,
+      "image": "indore"
+    },
+    {
+      "id": 2,
+      "name": "Community Chest",
+      "type": "community_chest",
+      "colorGroup": "none",
+      "price": 0,
+      "houseCost": 0,
+      "mortgageValue": 0,
+      "rent": null,
+      "taxAmount": 0
+    },
+    {
+      "id": 3,
+      "name": "Bhubaneswar",
+      "type": "property",
+      "colorGroup": "brown",
+      "price": 600,
+      "houseCost": 500,
+      "mortgageValue": 300,
+      "rent": {
+        "base": 40,
+        "monopoly": 80,
+        "houses": [
+          200,
+          600,
+          1800,
+          3200
+        ],
+        "hotel": 4500
+      },
+      "taxAmount": 0,
+      "image": "bhubaneswar"
+    },
+    {
+      "id": 4,
+      "name": "Income Tax",
+      "type": "tax",
+      "colorGroup": "none",
+      "price": 0,
+      "houseCost": 0,
+      "mortgageValue": 0,
+      "rent": null,
+      "taxAmount": 2000,
+      "description": "Pay ₹2000"
+    },
+    {
+      "id": 5,
+      "name": "Eastern R.R.",
+      "type": "railroad",
+      "colorGroup": "railroad",
+      "price": 2000,
+      "houseCost": 0,
+      "mortgageValue": 1000,
+      "rent": {
+        "base": 250,
+        "monopoly": 2000,
+        "houses": [
+          500,
+          1000,
+          1500,
+          2000
+        ],
+        "hotel": 2000
+      },
+      "taxAmount": 0
+    },
+    {
+      "id": 6,
+      "name": "Patna",
+      "type": "property",
+      "colorGroup": "lightblue",
+      "price": 1000,
+      "houseCost": 500,
+      "mortgageValue": 500,
+      "rent": {
+        "base": 60,
+        "monopoly": 120,
+        "houses": [
+          300,
+          900,
+          2700,
+          4000
+        ],
+        "hotel": 5500
+      },
+      "taxAmount": 0,
+      "image": "patna"
+    },
+    {
+      "id": 7,
+      "name": "Chance",
+      "type": "chance",
+      "colorGroup": "none",
+      "price": 0,
+      "houseCost": 0,
+      "mortgageValue": 0,
+      "rent": null,
+      "taxAmount": 0
+    },
+    {
+      "id": 8,
+      "name": "Bhopal",
+      "type": "property",
+      "colorGroup": "lightblue",
+      "price": 1000,
+      "houseCost": 500,
+      "mortgageValue": 500,
+      "rent": {
+        "base": 60,
+        "monopoly": 120,
+        "houses": [
+          300,
+          900,
+          2700,
+          4000
+        ],
+        "hotel": 5500
+      },
+      "taxAmount": 0,
+      "image": "bhopal"
+    },
+    {
+      "id": 9,
+      "name": "Agra",
+      "type": "property",
+      "colorGroup": "lightblue",
+      "price": 1200,
+      "houseCost": 500,
+      "mortgageValue": 600,
+      "rent": {
+        "base": 80,
+        "monopoly": 160,
+        "houses": [
+          400,
+          1000,
+          3000,
+          4500
+        ],
+        "hotel": 6000
+      },
+      "taxAmount": 0,
+      "image": "agra"
+    },
+    {
+      "id": 10,
+      "name": "Jail / Just Visiting",
+      "type": "jail",
+      "colorGroup": "none",
+      "price": 0,
+      "houseCost": 0,
+      "mortgageValue": 0,
+      "rent": null,
+      "taxAmount": 0
+    },
+    {
+      "id": 11,
+      "name": "Nagpur",
+      "type": "property",
+      "colorGroup": "pink",
+      "price": 1400,
+      "houseCost": 1000,
+      "mortgageValue": 700,
+      "rent": {
+        "base": 100,
+        "monopoly": 200,
+        "houses": [
+          500,
+          1500,
+          4500,
+          6250
+        ],
+        "hotel": 7500
+      },
+      "taxAmount": 0,
+      "image": "nagpur"
+    },
+    {
+      "id": 12,
+      "name": "Electric Co.",
+      "type": "utility",
+      "colorGroup": "utility",
+      "price": 1500,
+      "houseCost": 0,
+      "mortgageValue": 750,
+      "rent": {
+        "base": 4,
+        "monopoly": 10,
+        "houses": [
+          4,
+          10,
+          10,
+          10
+        ],
+        "hotel": 10
+      },
+      "taxAmount": 0
+    },
+    {
+      "id": 13,
+      "name": "Lucknow",
+      "type": "property",
+      "colorGroup": "pink",
+      "price": 1400,
+      "houseCost": 1000,
+      "mortgageValue": 700,
+      "rent": {
+        "base": 100,
+        "monopoly": 200,
+        "houses": [
+          500,
+          1500,
+          4500,
+          6250
+        ],
+        "hotel": 7500
+      },
+      "taxAmount": 0,
+      "image": "lucknow"
+    },
+    {
+      "id": 14,
+      "name": "Chandigarh",
+      "type": "property",
+      "colorGroup": "pink",
+      "price": 1600,
+      "houseCost": 1000,
+      "mortgageValue": 800,
+      "rent": {
+        "base": 120,
+        "monopoly": 240,
+        "houses": [
+          600,
+          1800,
+          5000,
+          7000
+        ],
+        "hotel": 9000
+      },
+      "taxAmount": 0,
+      "image": "chandigarh"
+    },
+    {
+      "id": 15,
+      "name": "Northern R.R.",
+      "type": "railroad",
+      "colorGroup": "railroad",
+      "price": 2000,
+      "houseCost": 0,
+      "mortgageValue": 1000,
+      "rent": {
+        "base": 250,
+        "monopoly": 2000,
+        "houses": [
+          500,
+          1000,
+          1500,
+          2000
+        ],
+        "hotel": 2000
+      },
+      "taxAmount": 0
+    },
+    {
+      "id": 16,
+      "name": "Jaipur",
+      "type": "property",
+      "colorGroup": "orange",
+      "price": 1800,
+      "houseCost": 1000,
+      "mortgageValue": 900,
+      "rent": {
+        "base": 140,
+        "monopoly": 280,
+        "houses": [
+          700,
+          2000,
+          5500,
+          7500
+        ],
+        "hotel": 9500
+      },
+      "taxAmount": 0,
+      "image": "jaipur"
+    },
+    {
+      "id": 17,
+      "name": "Community Chest",
+      "type": "community_chest",
+      "colorGroup": "none",
+      "price": 0,
+      "houseCost": 0,
+      "mortgageValue": 0,
+      "rent": null,
+      "taxAmount": 0
+    },
+    {
+      "id": 18,
+      "name": "Surat",
+      "type": "property",
+      "colorGroup": "orange",
+      "price": 2000,
+      "houseCost": 1000,
+      "mortgageValue": 1000,
+      "rent": {
+        "base": 140,
+        "monopoly": 280,
+        "houses": [
+          700,
+          2000,
+          5500,
+          7500
+        ],
+        "hotel": 9500
+      },
+      "taxAmount": 0,
+      "image": "surat"
+    },
+    {
+      "id": 19,
+      "name": "Kolkata",
+      "type": "property",
+      "colorGroup": "orange",
+      "price": 2200,
+      "houseCost": 1000,
+      "mortgageValue": 1100,
+      "rent": {
+        "base": 160,
+        "monopoly": 320,
+        "houses": [
+          800,
+          2200,
+          6000,
+          8000
+        ],
+        "hotel": 10000
+      },
+      "taxAmount": 0,
+      "image": "kolkata"
+    },
+    {
+      "id": 20,
+      "name": "Free Parking",
+      "type": "free_parking",
+      "colorGroup": "none",
+      "price": 0,
+      "houseCost": 0,
+      "mortgageValue": 0,
+      "rent": null,
+      "taxAmount": 0,
+      "description": "Free Parking jackpot"
+    },
+    {
+      "id": 21,
+      "name": "Kochi",
+      "type": "property",
+      "colorGroup": "red",
+      "price": 2200,
+      "houseCost": 1500,
+      "mortgageValue": 1100,
+      "rent": {
+        "base": 180,
+        "monopoly": 360,
+        "houses": [
+          900,
+          2500,
+          7000,
+          8750
+        ],
+        "hotel": 10500
+      },
+      "taxAmount": 0,
+      "image": "kochi"
+    },
+    {
+      "id": 22,
+      "name": "Chance",
+      "type": "chance",
+      "colorGroup": "none",
+      "price": 0,
+      "houseCost": 0,
+      "mortgageValue": 0,
+      "rent": null,
+      "taxAmount": 0
+    },
+    {
+      "id": 23,
+      "name": "Chennai",
+      "type": "property",
+      "colorGroup": "red",
+      "price": 2200,
+      "houseCost": 1500,
+      "mortgageValue": 1100,
+      "rent": {
+        "base": 180,
+        "monopoly": 360,
+        "houses": [
+          900,
+          2500,
+          7000,
+          8750
+        ],
+        "hotel": 10500
+      },
+      "taxAmount": 0,
+      "image": "chennai"
+    },
+    {
+      "id": 24,
+      "name": "Ahmedabad",
+      "type": "property",
+      "colorGroup": "red",
+      "price": 2400,
+      "houseCost": 1500,
+      "mortgageValue": 1200,
+      "rent": {
+        "base": 200,
+        "monopoly": 400,
+        "houses": [
+          1000,
+          3000,
+          7500,
+          9250
+        ],
+        "hotel": 11000
+      },
+      "taxAmount": 0,
+      "image": "ahmedabad"
+    },
+    {
+      "id": 25,
+      "name": "Southern R.R.",
+      "type": "railroad",
+      "colorGroup": "railroad",
+      "price": 2000,
+      "houseCost": 0,
+      "mortgageValue": 1000,
+      "rent": {
+        "base": 250,
+        "monopoly": 2000,
+        "houses": [
+          500,
+          1000,
+          1500,
+          2000
+        ],
+        "hotel": 2000
+      },
+      "taxAmount": 0
+    },
+    {
+      "id": 26,
+      "name": "Bengaluru",
+      "type": "property",
+      "colorGroup": "yellow",
+      "price": 2600,
+      "houseCost": 1500,
+      "mortgageValue": 1300,
+      "rent": {
+        "base": 220,
+        "monopoly": 440,
+        "houses": [
+          1100,
+          3300,
+          8000,
+          9750
+        ],
+        "hotel": 11500
+      },
+      "taxAmount": 0,
+      "image": "bengaluru"
+    },
+    {
+      "id": 27,
+      "name": "Goa",
+      "type": "property",
+      "colorGroup": "yellow",
+      "price": 2600,
+      "houseCost": 1500,
+      "mortgageValue": 1300,
+      "rent": {
+        "base": 220,
+        "monopoly": 440,
+        "houses": [
+          1100,
+          3300,
+          8000,
+          9750
+        ],
+        "hotel": 11500
+      },
+      "taxAmount": 0,
+      "image": "goa"
+    },
+    {
+      "id": 28,
+      "name": "Water Works",
+      "type": "utility",
+      "colorGroup": "utility",
+      "price": 1500,
+      "houseCost": 0,
+      "mortgageValue": 750,
+      "rent": {
+        "base": 4,
+        "monopoly": 10,
+        "houses": [
+          4,
+          10,
+          10,
+          10
+        ],
+        "hotel": 10
+      },
+      "taxAmount": 0
+    },
+    {
+      "id": 29,
+      "name": "Hyderabad",
+      "type": "property",
+      "colorGroup": "yellow",
+      "price": 2800,
+      "houseCost": 1500,
+      "mortgageValue": 1400,
+      "rent": {
+        "base": 240,
+        "monopoly": 480,
+        "houses": [
+          1200,
+          3600,
+          8500,
+          10250
+        ],
+        "hotel": 12000
+      },
+      "taxAmount": 0,
+      "image": "hyderabad"
+    },
+    {
+      "id": 30,
+      "name": "Go To Jail",
+      "type": "go_to_jail",
+      "colorGroup": "none",
+      "price": 0,
+      "houseCost": 0,
+      "mortgageValue": 0,
+      "rent": null,
+      "taxAmount": 0,
+      "description": "Go directly to Jail. Do not pass GO."
+    },
+    {
+      "id": 31,
+      "name": "Gurugram",
+      "type": "property",
+      "colorGroup": "green",
+      "price": 3000,
+      "houseCost": 2000,
+      "mortgageValue": 1500,
+      "rent": {
+        "base": 260,
+        "monopoly": 520,
+        "houses": [
+          1300,
+          3900,
+          9000,
+          11000
+        ],
+        "hotel": 12750
+      },
+      "taxAmount": 0,
+      "image": "gurugram"
+    },
+    {
+      "id": 32,
+      "name": "Noida",
+      "type": "property",
+      "colorGroup": "green",
+      "price": 3000,
+      "houseCost": 2000,
+      "mortgageValue": 1500,
+      "rent": {
+        "base": 260,
+        "monopoly": 520,
+        "houses": [
+          1300,
+          3900,
+          9000,
+          11000
+        ],
+        "hotel": 12750
+      },
+      "taxAmount": 0,
+      "image": "noida"
+    },
+    {
+      "id": 33,
+      "name": "Community Chest",
+      "type": "community_chest",
+      "colorGroup": "none",
+      "price": 0,
+      "houseCost": 0,
+      "mortgageValue": 0,
+      "rent": null,
+      "taxAmount": 0
+    },
+    {
+      "id": 34,
+      "name": "New Delhi",
+      "type": "property",
+      "colorGroup": "green",
+      "price": 3200,
+      "houseCost": 2000,
+      "mortgageValue": 1600,
+      "rent": {
+        "base": 280,
+        "monopoly": 560,
+        "houses": [
+          1500,
+          4500,
+          10000,
+          12000
+        ],
+        "hotel": 14000
+      },
+      "taxAmount": 0,
+      "image": "delhi"
+    },
+    {
+      "id": 35,
+      "name": "Western R.R.",
+      "type": "railroad",
+      "colorGroup": "railroad",
+      "price": 2000,
+      "houseCost": 0,
+      "mortgageValue": 1000,
+      "rent": {
+        "base": 250,
+        "monopoly": 2000,
+        "houses": [
+          500,
+          1000,
+          1500,
+          2000
+        ],
+        "hotel": 2000
+      },
+      "taxAmount": 0
+    },
+    {
+      "id": 36,
+      "name": "Chance",
+      "type": "chance",
+      "colorGroup": "none",
+      "price": 0,
+      "houseCost": 0,
+      "mortgageValue": 0,
+      "rent": null,
+      "taxAmount": 0
+    },
+    {
+      "id": 37,
+      "name": "Pune",
+      "type": "property",
+      "colorGroup": "darkblue",
+      "price": 3500,
+      "houseCost": 2000,
+      "mortgageValue": 1750,
+      "rent": {
+        "base": 350,
+        "monopoly": 700,
+        "houses": [
+          1750,
+          5000,
+          11000,
+          13000
+        ],
+        "hotel": 15000
+      },
+      "taxAmount": 0,
+      "image": "pune"
+    },
+    {
+      "id": 38,
+      "name": "Luxury Tax",
+      "type": "tax",
+      "colorGroup": "none",
+      "price": 0,
+      "houseCost": 0,
+      "mortgageValue": 0,
+      "rent": null,
+      "taxAmount": 1000,
+      "description": "Pay ₹1000"
+    },
+    {
+      "id": 39,
+      "name": "Mumbai",
+      "type": "property",
+      "colorGroup": "darkblue",
+      "price": 4000,
+      "houseCost": 2000,
+      "mortgageValue": 2000,
+      "rent": {
+        "base": 500,
+        "monopoly": 1000,
+        "houses": [
+          2000,
+          6000,
+          14000,
+          17000
+        ],
+        "hotel": 20000
+      },
+      "taxAmount": 0,
+      "image": "mumbai"
+    }
+  ]
+}

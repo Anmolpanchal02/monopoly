@@ -1,0 +1,264 @@
+{
+  "chance": [
+    {
+      "id": "ch1",
+      "type": "chance",
+      "title": "Advance to GO",
+      "description": "Advance to GO. Collect ₹2000.",
+      "action": "advance_to_go"
+    },
+    {
+      "id": "ch2",
+      "type": "chance",
+      "title": "Go to Jail",
+      "description": "Go directly to Jail. Do not pass GO. Do not collect ₹2000.",
+      "action": "go_to_jail"
+    },
+    {
+      "id": "ch3",
+      "type": "chance",
+      "title": "Go Back 3 Spaces",
+      "description": "Go back 3 spaces.",
+      "action": "go_back",
+      "spaces": 3
+    },
+    {
+      "id": "ch4",
+      "type": "chance",
+      "title": "Bank Dividend",
+      "description": "Bank pays you dividend of ₹500.",
+      "action": "collect_bank",
+      "amount": 500
+    },
+    {
+      "id": "ch5",
+      "type": "chance",
+      "title": "Get Out of Jail Free",
+      "description": "Get out of Jail free. This card may be kept until needed or sold.",
+      "action": "get_out_of_jail"
+    },
+    {
+      "id": "ch6",
+      "type": "chance",
+      "title": "Advance to Ahmedabad",
+      "description": "Advance to Ahmedabad. If you pass GO, collect ₹2000.",
+      "action": "advance_to",
+      "targetTileId": 24
+    },
+    {
+      "id": "ch7",
+      "type": "chance",
+      "title": "Advance to Nagpur",
+      "description": "Advance to Nagpur. If you pass GO, collect ₹2000.",
+      "action": "advance_to",
+      "targetTileId": 11
+    },
+    {
+      "id": "ch8",
+      "type": "chance",
+      "title": "Nearest Railroad",
+      "description": "Take a trip to the nearest Railroad.",
+      "action": "nearest_railroad"
+    },
+    {
+      "id": "ch9",
+      "type": "chance",
+      "title": "Nearest Utility",
+      "description": "Advance to nearest Utility.",
+      "action": "nearest_utility"
+    },
+    {
+      "id": "ch10",
+      "type": "chance",
+      "title": "Building Loan Matures",
+      "description": "Your building loan matures. Collect ₹1500.",
+      "action": "collect_bank",
+      "amount": 1500
+    },
+    {
+      "id": "ch11",
+      "type": "chance",
+      "title": "Crossword Competition",
+      "description": "You have won a crossword competition. Collect ₹1000.",
+      "action": "collect_bank",
+      "amount": 1000
+    },
+    {
+      "id": "ch12",
+      "type": "chance",
+      "title": "Poor Tax",
+      "description": "Pay poor tax of ₹150.",
+      "action": "pay_bank",
+      "amount": 150
+    },
+    {
+      "id": "ch13",
+      "type": "chance",
+      "title": "Advance to Mumbai",
+      "description": "Advance to Mumbai.",
+      "action": "advance_to",
+      "targetTileId": 39
+    },
+    {
+      "id": "ch14",
+      "type": "chance",
+      "title": "Advance to Eastern R.R.",
+      "description": "Take a ride on the Eastern Railroad. If you pass GO, collect ₹2000.",
+      "action": "advance_to",
+      "targetTileId": 5
+    },
+    {
+      "id": "ch15",
+      "type": "chance",
+      "title": "Chairman of the Board",
+      "description": "You have been elected Chairman of the Board. Pay each player ₹500.",
+      "action": "pay_each_player",
+      "amount": 500
+    },
+    {
+      "id": "ch16",
+      "type": "chance",
+      "title": "General Repairs",
+      "description": "Make general repairs. Pay ₹250 per house and ₹1000 per hotel.",
+      "action": "repairs",
+      "perHouse": 250,
+      "perHotel": 1000
+    }
+  ],
+  "communityChest": [
+    {
+      "id": "cc1",
+      "type": "community_chest",
+      "title": "Advance to GO",
+      "description": "Advance to GO. Collect ₹2000.",
+      "action": "advance_to_go"
+    },
+    {
+      "id": "cc2",
+      "type": "community_chest",
+      "title": "Bank Error",
+      "description": "Bank error in your favor. Collect ₹2000.",
+      "action": "collect_bank",
+      "amount": 2000
+    },
+    {
+      "id": "cc3",
+      "type": "community_chest",
+      "title": "Doctor's Fee",
+      "description": "Doctor's fees. Pay ₹500.",
+      "action": "pay_bank",
+      "amount": 500
+    },
+    {
+      "id": "cc4",
+      "type": "community_chest",
+      "title": "Stock Sale",
+      "description": "From sale of stock you get ₹500.",
+      "action": "collect_bank",
+      "amount": 500
+    },
+    {
+      "id": "cc5",
+      "type": "community_chest",
+      "title": "Get Out of Jail Free",
+      "description": "Get out of Jail free.",
+      "action": "get_out_of_jail"
+    },
+    {
+      "id": "cc6",
+      "type": "community_chest",
+      "title": "Go to Jail",
+      "description": "Go directly to Jail. Do not pass GO.",
+      "action": "go_to_jail"
+    },
+    {
+      "id": "cc7",
+      "type": "community_chest",
+      "title": "Opera Night",
+      "description": "Collect ₹500 from every player.",
+      "action": "collect_each_player",
+      "amount": 500
+    },
+    {
+      "id": "cc8",
+      "type": "community_chest",
+      "title": "Holiday Fund",
+      "description": "Holiday fund matures. Receive ₹1000.",
+      "action": "collect_bank",
+      "amount": 1000
+    },
+    {
+      "id": "cc9",
+      "type": "community_chest",
+      "title": "Income Tax Refund",
+      "description": "Income tax refund. Collect ₹200.",
+      "action": "collect_bank",
+      "amount": 200
+    },
+    {
+      "id": "cc10",
+      "type": "community_chest",
+      "title": "Birthday",
+      "description": "It is your birthday. Collect ₹100 from every player.",
+      "action": "collect_each_player",
+      "amount": 100
+    },
+    {
+      "id": "cc11",
+      "type": "community_chest",
+      "title": "Life Insurance",
+      "description": "Life insurance matures. Collect ₹1000.",
+      "action": "collect_bank",
+      "amount": 1000
+    },
+    {
+      "id": "cc12",
+      "type": "community_chest",
+      "title": "Hospital Fees",
+      "description": "Pay hospital fees of ₹1000.",
+      "action": "pay_bank",
+      "amount": 1000
+    },
+    {
+      "id": "cc13",
+      "type": "community_chest",
+      "title": "School Fees",
+      "description": "Pay school fees of ₹500.",
+      "action": "pay_bank",
+      "amount": 500
+    },
+    {
+      "id": "cc14",
+      "type": "community_chest",
+      "title": "Consultancy Fee",
+      "description": "Receive ₹250 consultancy fee.",
+      "action": "collect_bank",
+      "amount": 250
+    },
+    {
+      "id": "cc15",
+      "type": "community_chest",
+      "title": "Street Repairs",
+      "description": "Pay ₹400 per house and ₹1150 per hotel.",
+      "action": "repairs",
+      "perHouse": 400,
+      "perHotel": 1150
+    },
+    {
+      "id": "cc16",
+      "type": "community_chest",
+      "title": "Beauty Contest",
+      "description": "Second prize in a beauty contest. Collect ₹100.",
+      "action": "collect_bank",
+      "amount": 100
+    },
+    {
+      "id": "cc17",
+      "type": "community_chest",
+      "title": "Inheritance",
+      "description": "You inherit ₹1000.",
+      "action": "collect_bank",
+      "amount": 1000
+    }
+  ]
+}
