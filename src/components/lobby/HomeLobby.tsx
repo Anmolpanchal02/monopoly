@@ -15,6 +15,7 @@ import { Dices, Trophy, User } from "lucide-react";
 export function HomeLobby() {
   const router = useRouter();
   const { data: session } = useSession();
+  const connected = useGameStore((s) => s.connected);
   const { createRoom, joinRoom } = useSocket();
   const setIdentity = useGameStore((s) => s.setIdentity);
   const username = useGameStore((s) => s.username);
@@ -112,6 +113,13 @@ export function HomeLobby() {
         </nav>
 
         <main className="flex flex-1 flex-col items-center justify-center gap-10 py-10">
+          {!connected && (
+            <div className="w-full max-w-3xl rounded-2xl border border-amber-400/40 bg-amber-500/15 px-4 py-3 text-sm text-amber-100">
+              Game server offline — Create/Join room needs Socket.io. Local:{" "}
+              <code className="text-amber-50">npm run dev</code>. Live multiplayer: deploy
+              on Railway/Render (not Vercel alone).
+            </div>
+          )}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}

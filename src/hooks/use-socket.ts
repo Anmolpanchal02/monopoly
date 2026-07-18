@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback } from "react";
-import { getSocket } from "@/lib/socket-client";
+import { getSocket, ensureSocketConnected } from "@/lib/socket-client";
 import { useGameStore } from "@/store/game-store";
 import type { GameSettings, ThemeId, TokenId } from "@/types/game";
 
@@ -17,69 +17,95 @@ export function useSocket() {
   const setPlayerId = useGameStore((s) => s.setPlayerId);
 
   const createRoom = useCallback(
-    (password?: string) => {
-      const socket = getSocket();
-      return new Promise<{ ok: boolean; error?: string }>((resolve) => {
-        if (!userId || !username) {
-          resolve({ ok: false, error: "Sign in first" });
-          return;
-        }
-        socket.emit(
-          "create_room",
-          {
-            userId,
-            username,
-            avatar,
-            password,
-            settings: draftSettings,
-            theme,
-            token,
-          },
-          (res) => {
-            if (res.ok && res.room && res.playerId) {
-              setRoom(res.room as never);
-              setPlayerId(res.playerId);
-              resolve({ ok: true });
-            } else {
-              resolve({ ok: false, error: res.error });
+    async (password?: string) => {
+      if (!userId || !username) {
+        return { ok: false, error: "Enter your name first" };
+      }
+      try {
+        const socket = await ensureSocketConnected();
+        return await new Promise<{ ok: boolean; error?: string }>((resolve) => {
+          const timer = setTimeout(() => {
+            resolve({
+              ok: false,
+              error: "Create room timed out — game server not responding",
+            });
+          }, 8000);
+          socket.emit(
+            "create_room",
+            {
+              userId,
+              username,
+              avatar,
+              password,
+              settings: draftSettings,
+              theme,
+              token,
+            },
+            (res) => {
+              clearTimeout(timer);
+              if (res.ok && res.room && res.playerId) {
+                setRoom(res.room as never);
+                setPlayerId(res.playerId);
+                resolve({ ok: true });
+              } else {
+                resolve({ ok: false, error: res.error ?? "Failed to create room" });
+              }
             }
-          }
-        );
-      });
+          );
+        });
+      } catch (e) {
+        return {
+          ok: false,
+          error: e instanceof Error ? e.message : "Cannot reach game server",
+        };
+      }
     },
     [avatar, draftSettings, setPlayerId, setRoom, theme, token, userId, username]
   );
 
   const joinRoom = useCallback(
-    (code: string, password?: string, asSpectator = false) => {
-      const socket = getSocket();
-      return new Promise<{ ok: boolean; error?: string }>((resolve) => {
-        if (!userId || !username) {
-          resolve({ ok: false, error: "Sign in first" });
-          return;
-        }
-        socket.emit(
-          "join_room",
-          {
-            code,
-            password,
-            userId,
-            username,
-            avatar,
-            token,
-            asSpectator,
-          },
-          (res) => {
-            if (res.ok && res.room && res.playerId) {
-              setRoom(res.room as never);
-              setPlayerId(res.playerId);
-              resolve({ ok: true });
-            } else {
-              resolve({ ok: false, error: res.error });
+    async (code: string, password?: string, asSpectator = false) => {
+      if (!userId || !username) {
+        return { ok: false, error: "Enter your name first" };
+      }
+      try {
+        const socket = await ensureSocketConnected();
+        return await new Promise<{ ok: boolean; error?: string }>((resolve) => {
+          const timer = setTimeout(() => {
+            resolve({
+              ok: false,
+              error: "Join timed out — game server not responding",
+            });
+          }, 8000);
+          socket.emit(
+            "join_room",
+            {
+              code,
+              password,
+              userId,
+              username,
+              avatar,
+              token,
+              asSpectator,
+            },
+            (res) => {
+              clearTimeout(timer);
+              if (res.ok && res.room && res.playerId) {
+                setRoom(res.room as never);
+                setPlayerId(res.playerId);
+                resolve({ ok: true });
+              } else {
+                resolve({ ok: false, error: res.error ?? "Failed to join" });
+              }
             }
-          }
-        );
-      });
+          );
+        });
+      } catch (e) {
+        return {
+          ok: false,
+          error: e instanceof Error ? e.message : "Cannot reach game server",
+        };
+      }
     },
     [avatar, setPlayerId, setRoom, token, userId, username]
   );

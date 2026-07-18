@@ -67,5 +67,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     },
   },
   trustHost: true,
+  // New cookie name invalidates old sessions encrypted with a different secret
+  // (fixes JWTSessionError: no matching decryption secret after AUTH_SECRET changes)
+  cookies: {
+    sessionToken: {
+      name:
+        process.env.NODE_ENV === "production"
+          ? "__Secure-monopoly.session-token"
+          : "monopoly.session-token",
+    },
+  },
   secret: process.env.AUTH_SECRET ?? process.env.NEXTAUTH_SECRET ?? "dev-secret-change-me",
 });
