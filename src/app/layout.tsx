@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Outfit } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "@/components/providers/Providers";
 import { IdentitySync } from "@/components/providers/IdentitySync";
 import "./globals.css";
@@ -31,6 +32,7 @@ export default function RootLayout({
         <Providers>
           <IdentitySync>{children}</IdentitySync>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
